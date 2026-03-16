@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=M+PLUS+Rounded+1c&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=M+PLUS+Rounded+1c&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_framework{
+    position: relative;
+    top: 0rem;
+    margin: 0;
+}
+
+
+.navigation_framework{
+    display:flex;
+    justify-content:center; /* center horizontally */
+    position: absolute;
+    align-items: center; 
+    justify-self: center;
+    margin: 25px auto;     
+}
+
+nav{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: "thin";
+    font-size: 16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:4rem;
+    width:fit-content;
+    z-index: 3;                 
+    margin:0 auto;                    
+    padding:0;
+    padding-right: 1.5rem;                   
+    position:relative;
+    border-radius:50px;               
+    border:2px solid rgba(255,255,255,0.2);
+    background-color:rgba(144, 144, 144, 0.4);
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+    backdrop-filter:blur(10px);
+    transform-style:preserve-3d;
+    animation: float 6s ease-in-out infinite;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    gap:1.5rem;
+}
+
+nav ul li{
+    list-style:none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Profile picture inside navbar */
+nav ul li.profile{
+    margin-left:-2rem;
+    margin-top: 0.4rem;
+    margin-right:5rem;
+}
+nav ul li.profile img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid rgba(255,255,255,0.6);
+    margin-left:0;
+    transition:0.3s;
+}
+
+
+
+/*Links*/ 
+
+nav ul li.links:hover{
+    color: #4d347b;
+    transform: translateY(-5px);
+}
+
+nav ul li.profile img:hover{
+    transform:scale(1.1);
+    border: 2px solid #4d347b;
+}
+
+
+/*Dropdown*/
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(-10deg); }
+  30% { transform: rotate(10deg); }
+  45% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+nav ul li.dropdown a:hover i {
+  display: inline-block;  /* needed for transform */
+  animation: wiggle 0.6s ease;
+  
+}
+
+nav ul li.dropdown a:hover{
+    color: #4d347b;
+    transition: 0.5s;
+}
+nav ul li.dropdown {
+  position: relative; /* required for absolute positioning of submenu */
+}
+
+nav ul li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+nav ul li.dropdown .dropdown-menu {
+  display: none;       /* hidden initially */
+  position: absolute;  /* so it floats over other content */
+  top: 100%;           /* right below the parent li */
+  left: 0;
+  color: #fff;
+  background-color: #201944;
+  min-width: 150px;    /* adjust as needed */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 10;
+}
+
+/* Show the menu when parent li is hovered */
+nav ul li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Style each dropdown item */
+nav ul li.dropdown .dropdown-menu li a {
+  display: block;
+  padding: 8px 12px;
+  /* color: #333; */
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+/* Hover effect for dropdown items */
+nav ul li.dropdown .dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+
+/*Signup button with fluid fill effect */
+
+nav ul li.Signup a{
+  padding: 12px 20px ;
+  font-family: 'Inter', sans-serif; /* Similar to the clean sans-serif in your image */
+  font-size: small;
+  margin-left: 4rem;
+  margin-bottom: 2rem;
+  padding: 0.8rem 2rem;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  background: linear-gradient(180deg, #4d347b 0%, #2e245e 100%);
+  box-shadow: 
+    inset 1px 2px 6px  rgba(255, 255, 255, 0.851),
+    inset -1px 2px 6px rgba(255, 255, 255, 0.851),
+    inset 1px -2px 6px rgba(255, 255, 255, 0.851),
+    inset -1px -2px 6px rgba(255, 255, 255, 0.851);
+    /* 0 4px 15px rgba(182, 182, 182, 0.4); */
+  transition: all 0.2s ease;
+}
+nav ul li.Signup a {
+  position: relative; 
+  overflow: hidden; 
+  left: 0.8rem;  
+  top: -0.24rem;
+  z-index: 1;         
+}
+
+/* Fluid fill effect */
+/* Fluid fill effect */
+/* Fluid fill effect - hidden initially */
+nav ul li.Signup a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 0;
+  border-radius: 40px;
+  clip-path: inset(100% 0 0 0); /* fully clipped at start */
+  transition: clip-path 0.4s ease;
+}
+
+/* On hover, reveal the fill smoothly */
+nav ul li.Signup a:hover::before {
+  clip-path: inset(0 0 0 0); /* unclipped, full fill */
+}
+
+/* Text color transition */
+nav ul li.Signup a span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+nav ul li.Signup a:hover span {
+  color: #4d347b;
+}
+
+.first-section {
+  font-family: "Nunito", sans-serif;
+    display: grid;
+    grid-template-columns: 2.3fr 1fr;
+    top: 0;
+    margin: 0;
+    color: #fff;
+    font-size: 23px;
+    position: relative;
+    background:
+        linear-gradient(rgba(29, 71, 70, 0.9), rgba(29, 71, 70, 0.9)),
+        url("../Assets/profile2.jpg");
+    background-size: cover;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+     height: 90vh;
+    padding: 8rem;
+    gap: 15rem;
+    
+}
+
+.first-section_container-left{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.first-section_container-left h1{
+  font-family: "Nunito", sans-serif;
+
+}
+
+.first-section_container-left .stars{
+  color: #f8c217;
+  font-size: 14px;
+}
+
+.stars_and_text{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.ratings_text{
+  color:#f8c217;
+  font-size: 14px;
+}
+
+
+.download_appstore{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: 4rem;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.7rem;
+  padding-right: 1.2rem;
+  border:2px solid rgba(255,255,255,0.2);
+  background-color:rgba(144, 144, 144, 0.4);
+  backdrop-filter:blur(10px);
+  transform-style:preserve-3d;
+  border-radius:50px;               
+
+}
+
+.watch_demo{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  gap: 0.3rem;
+  height: 4rem;
+  padding: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  border:2px solid rgba(255,255,255,0.2);
+  background-color:#4d347b;
+  backdrop-filter:blur(10px);
+  transform-style:preserve-3d;
+  border-radius:50px;
+}
+
+.watch_demo_text{
+  font-size: 17px;
+  font-size: 400;
+}
+
+.apple_and_demo_row{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  height: fit-content;
+  align-items: center;
+}
+
+.download_text p span{
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.apple_logo i{
+  font-size: 30px;
+}
+
+.download_text{
+  font-size: 14px;
+  text-align: center;
+}
+
+.description{
+  font: "M PLUS Rounded 1c", sans-serif;
+  border-left: 2px solid #fff;
+  padding-left: 1rem;
+  font-size: 18px;
+  height: 4rem;
+  align-content: center;
+  justify-content: center;
+  margin-top: rem;
+}
+
+.stats_section{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-size: smaller;
+}
+
+.vert_divider{
+  height: 3rem;
+  width: 4px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.stats_section p{
+  font-size: 14px;
+}
+
+.stats_section *{
+  text-align: center;
+}
+.first-section_container-right{
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.first-section_container-right img{
+  width: 30vw;
+}
+
+.second-section{
+    margin: 0;      /* ensure no margin */
+    padding: 0;     /* optional, remove padding if any */
+    position: relative;
+    background-color: #fff;
+    height: 60vh;
+}
+
+.wave {
+  position: absolute;  /* or absolute if you want it overlayed */
+  width: 100vw;        /* full viewport width */
+  overflow: hidden;    /* hide anything overflowing */
+  z-index: 200;
+  top: 60.5vh;
+}
+
+.wave svg {
+  width: 100vw;        /* full viewport width */
+  height: auto;        /* maintains aspect ratio */
+  display: block; 
+  box-shadow: 3px 3px 15px #0000005f;
+
+}
